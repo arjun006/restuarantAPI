@@ -39,9 +39,6 @@ db.initialize().then(()=>{
 //API Routes
 app.get('/',function(req,res){
     res.status(200).json({message:"API Listening..."})
-    .catch((err)=>{
-        res.status(500).json({message:`Server Error: ${err}`})
-    })
 });
 app.get('/api/restaurants',(req,res)=>{
     db.getAllRestaurants(req.query.page, req.query.perPage, req.query.borough)
