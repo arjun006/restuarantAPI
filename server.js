@@ -18,7 +18,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //Express Connection
 const app = express();
-var HTTP_PORT = process.env.PORT || 3000;
+var HTTP_PORT = process.env.PORT || 5000;
 const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(bodyParser.json());
 app.use(express.json());
@@ -58,7 +58,7 @@ app.get('/api/restaurants/:id',(req,res)=>{
     })
 });
 
-app.post("/api/restaurants", (req, res) => {
+app.post("/api/restaurants", (req, res) => { 
     db.addNewRestaurant(req.body)
     .then(res.status(201)
     .json({message:"Successfully added restaurant"}))
